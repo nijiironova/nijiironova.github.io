@@ -21,7 +21,6 @@ function localScriptStart(e) {
     cursorWidth = cr.width;
     document.addEventListener('mousemove', mouseMoveHandler, false);
     document.addEventListener('touchmove', touchMoveHandler, false);
-    setTimeout(addItem, 3000);
 }
 function clickEventHandler(e) {
     clickWai.style.display = 'none';
