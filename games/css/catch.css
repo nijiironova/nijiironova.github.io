@@ -19,6 +19,8 @@
     color: #ffffff;
     font-size: 30px;
     cursor: pointer;
+    text-align: center;
+    line-height: 100vh;
 }
 #itemSheet{
     position: absolute;
