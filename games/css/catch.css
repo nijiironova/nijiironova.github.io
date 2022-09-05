@@ -7,6 +7,7 @@
     border: solid 3px #000000;
     border-style: none solid solid solid;
     box-sizing: border-box;
+    display: inline-block;
 }
 #itemSheet{
     position: absolute;
