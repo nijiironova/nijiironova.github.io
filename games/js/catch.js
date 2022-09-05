@@ -4,6 +4,7 @@ function id(elementId) {
 var curso = id('cursor');
 var itemShee = id('itemSheet');
 var clickWai = id('clickWait');
+var scoreVie = id('scoreView');
 var screenWidth = 0;
 var itemList = [];
 var itemX = [];
@@ -12,6 +13,7 @@ var itemWidth = 50;
 var cursorWidth = 0;
 var speed = 10;
 var cursorX = 0;
+var score = 0;
 function localScriptStart(e) {
     var cr = document.body.getBoundingClientRect();
     screenWidth = cr.width;
@@ -47,7 +49,14 @@ function moveItem() {
     for(var i = 0; i < itemList.length; i++) {
         itemY[i] += speed;
         itemList[i].style.top = itemY[i]+'px';
-        if((cursorX + itemWidth) < itemX[i] && (cursorX - itemWidth) > itemX[i]) {}
+        if((cursorX + itemWidth) < itemX[i] && (cursorX - itemWidth) > itemX[i]) {
+            score++;
+            scoreVie.innerHTML = 'score: '+score;
+            itemShee.removeChild(itemList[i]);
+            itemList.splice(i, 1);
+            itemX.splice(i, 1);
+            itemY.splice(i, 1);
+        }
     }
     requestAnimationFrame(moveItem);
 }
