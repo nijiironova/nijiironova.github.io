@@ -6,6 +6,7 @@ var itemShee = id('itemSheet');
 var clickWai = id('clickWait');
 var scoreVie = id('scoreView');
 var screenWidth = 0;
+var screenHeight = 0;
 var itemList = [];
 var itemX = [];
 var itemY = [];
@@ -17,6 +18,7 @@ var score = 0;
 function localScriptStart(e) {
     var cr = document.body.getBoundingClientRect();
     screenWidth = cr.width;
+    screenHeight = cr.height;
     cr = curso.getBoundingClientRect();
     cursorWidth = cr.width;
     document.addEventListener('mousemove', mouseMoveHandler, false);
@@ -50,7 +52,7 @@ function moveItem() {
     for(var i = 0; i < itemList.length; i++) {
         itemY[i] += speed;
         itemList[i].style.top = itemY[i]+'px';
-        if((cursorX + itemWidth) > itemX[i] && (cursorX - itemWidth) < (itemX[i] + itemWidth)) {
+        if((cursorX + itemWidth) > itemX[i] && (cursorX - itemWidth) < (itemX[i] + itemWidth) && itemY[i] < screenHeight - 100) {
             score++;
             scoreVie.innerHTML = 'score: '+score;
             itemShee.removeChild(itemList[i]);
