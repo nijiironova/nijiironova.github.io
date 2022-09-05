@@ -50,7 +50,7 @@ function moveItem() {
     for(var i = 0; i < itemList.length; i++) {
         itemY[i] += speed;
         itemList[i].style.top = itemY[i]+'px';
-        if((cursorX + itemWidth) < itemX[i] && (cursorX - itemWidth) > itemX[i]) {
+        if((cursorX + itemWidth) > itemX[i] && (cursorX - itemWidth) < (itemX[i] + itemWidth)) {
             score++;
             scoreVie.innerHTML = 'score: '+score;
             itemShee.removeChild(itemList[i]);
